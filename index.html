@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attention Engine 4.0</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- custom cursor  -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+
+    <!-- hero section -->
+    <section class="hero" id="top">
+        <div class="hero-card" id="heroCard">
+            <div class="badge">LAB 6 • Web Engineering • Attention Trap</div>
+
+            <h1 class="glitch-title" id="glitchTitle" data-text="ATTENTION ENGINE">
+                <span id="typing"></span><span class="caret">▍</span>
+            </h1>
+
+            <p class="sub">
+                Inspired by <b>jodi</b> & <b>arngren</b>.
+                This page uses <b>pattern breaks</b>, <b>micro-rewards</b>, and <b>controlled chaos</b>
+                to hold attention for at least <b>2 seconds</b>.
+            </p>
+
+            <div class="hero-actions">
+                <button id="startBtn" class="btn-primary">Run 2-Second Scan</button>
+                <button id="chaosBtn" class="btn-ghost">Toggle Chaos</button>
+                <button id="soundBtn" class="btn-ghost">Sound: OFF</button>
+            </div>
+
+            <div class="scanner">
+                <div class="scan-bar" id="scanBar"></div>
+            </div>
+            <p id="scanResult" class="scan-result"></p>
+
+            <div class="scroll-hint">
+                <span class="mouse"></span>
+                <span>Scroll to reveal the experiment ↓</span>
+            </div>
+        </div>
+
+        <!-- Floating shapes -->
+        <div class="floating-shapes" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="ambient" aria-hidden="true"></div>
+    </section>
+
+    <!-- game-->
+    <section class="game reveal">
+        <div class="section-head">
+            <h2 class="section-title">Mini Game: Catch the Glow</h2>
+            <p class="section-sub">Click the moving orb 5 times to unlock a “Verified” badge.</p>
+        </div>
+
+        <div class="game-wrap">
+            <div class="scoreboard">
+                <div class="score-pill">Score: <b id="score">0</b>/5</div>
+                <div class="score-pill">Time: <b id="time">10</b>s</div>
+                <div class="score-pill" id="unlockPill">Status: <b>Locked</b></div>
+            </div>
+
+            <div class="arena" id="arena">
+                <div class="orb" id="orb" title="Catch me!"></div>
+                <div class="arena-overlay" id="arenaOverlay">
+                    Click “Start Game” to begin
+                </div>
+            </div>
+
+            <div class="game-actions">
+                <button class="btn-primary" id="gameStart">Start Game</button>
+                <button class="btn-ghost" id="gameReset">Reset</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Break -->
+    <section class="creative-break reveal">
+        <div class="section-head">
+            <h2 class="section-title">Pattern Break Zone</h2>
+            <p class="section-sub">Visual noise = curiosity = extra seconds on site.</p>
+        </div>
+
+        <div class="break-grid">
+            <div class="break-card">
+                <h3>Live Signal</h3>
+                <p>Matrix stream keeps eyes moving; attention stays active.</p>
+                <div class="mini-pill">visual hook</div>
+            </div>
+
+            <div class="break-canvas-wrap">
+                <canvas id="matrixCanvas"></canvas>
+                <div class="canvas-overlay">
+                    <div class="overlay-chip">AUTO GLITCH</div>
+                    <div class="overlay-text" id="overlayText">watch…</div>
+                </div>
+            </div>
+
+            <div class="break-card">
+                <h3>Micro Reward</h3>
+                <p>Unlock badge after game — makes user continue.</p>
+                <div class="mini-pill">micro reward</div>
+            </div>
+        </div>
+    </section>
+
+    <!------------form--------------->
+    <section class="form-section reveal" id="form">
+        <div class="glass-card">
+            <div class="form-head">
+                <h2>Human Verification Form</h2>
+                <p>Complete the lab form with validation.</p>
+
+                <div class="verified-badge" id="verifiedBadge">
+                    🔒 VERIFIED: Locked (Play game)
+                </div>
+            </div>
+
+            <form id="mainForm" novalidate>
+
+                <div class="input-group">
+                    <input type="text" id="name" autocomplete="off" />
+                    <label>Name (min 3 chars) *</label>
+                    <span class="error" id="nameError"></span>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" id="email" autocomplete="off" />
+                    <label>Email *</label>
+                    <span class="error" id="emailError"></span>
+                </div>
+
+                <div class="input-group">
+                    <select id="interest">
+                        <option value="">Select Interest *</option>
+                        <option>Web Engineering</option>
+                        <option>UI/UX</option>
+                        <option>Marketing</option>
+                        <option>Business Strategy</option>
+                        <option>Shopify / E-commerce</option>
+                    </select>
+                    <span class="error" id="interestError"></span>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="message" rows="4"></textarea>
+                    <label>Why did you stay 2 seconds? (min 10 chars) *</label>
+                    <span class="error" id="messageError"></span>
+                </div>
+
+                <label class="checkline">
+                    <input type="checkbox" id="agree" />
+                    <span>I confirm this is for Lab 6 submission *</span>
+                </label>
+                <span class="error" id="agreeError"></span>
+
+                <button type="submit" class="btn-primary full">Submit Data</button>
+
+                <p id="successMsg" class="success"></p>
+            </form>
+
+            <div class="inspo">
+                <p><b>Inspiration:</b></p>
+                <a href="https://arngren.net/" target="_blank" rel="noreferrer">arngren.net</a>
+                <a href="https://wwwwwwwww.jodi.org/" target="_blank" rel="noreferrer">jodi.org</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer reveal">
+        <p>Attention Engine 4.0 • Deploy on GitHub Pages</p>
+        <a href="#top">Back to top ↑</a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
